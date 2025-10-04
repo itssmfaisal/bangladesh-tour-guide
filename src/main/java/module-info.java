@@ -12,9 +12,13 @@ module com.example.banglaeshtourguide {
     requires com.almasb.fxgl.all;
     requires java.sql;
 
-    // Open the controller package to javafx.fxml for FXML access
+    // Open the model package to javafx.base for reflection
+    opens com.example.banglaeshtourguide.model to javafx.base;
+
+    // Existing exports
+    exports com.example.banglaeshtourguide;
     opens com.example.banglaeshtourguide.controller to javafx.fxml;
 
     // Keep existing exports
-    exports com.example.banglaeshtourguide;
+
 }

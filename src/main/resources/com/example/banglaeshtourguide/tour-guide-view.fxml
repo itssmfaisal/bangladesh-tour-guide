@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.banglaeshtourguide.controller.TourGuideController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label text="Bangladesh Tour Guide" alignment="CENTER" maxWidth="Infinity">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Label>
+
+    <HBox alignment="CENTER_LEFT" spacing="10.0">
+        <Label text="Select District:"/>
+        <ComboBox fx:id="districtComboBox" prefWidth="200.0" promptText="Choose a district"/>
+    </HBox>
+
+    <TableView fx:id="spotTableView" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="spotNameColumn" text="Spot Name" prefWidth="200"/>
+            <TableColumn fx:id="ticketPriceColumn" text="Ticket Price" prefWidth="100"/>
+            <TableColumn fx:id="facilitiesColumn" text="Facilities" prefWidth="300"/>
+        </columns>
+        <placeholder>
+            <Label text="No spots selected. Please choose a district."/>
+        </placeholder>
+    </TableView>
+
+    <Button text="Refresh Districts" onAction="#refreshDistricts"/>
+</VBox>

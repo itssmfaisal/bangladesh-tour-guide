@@ -38,13 +38,18 @@ CREATE TABLE `foods` (
                          FOREIGN KEY (`district_id`) REFERENCES `districts`(`district_id`) ON DELETE SET NULL
 );
 
--- Table for Users
-CREATE TABLE `users` (
-                         `user_id` INT AUTO_INCREMENT PRIMARY KEY,
-                         `username` VARCHAR(50) NOT NULL UNIQUE,
-                         `password` VARCHAR(255) NOT NULL, -- Remember to hash passwords in a real app!
-                         `email` VARCHAR(255) UNIQUE
-);
+-- Create users table
+CREATE TABLE IF NOT EXISTS users (
+                                     id INT AUTO_INCREMENT PRIMARY KEY,
+                                     username VARCHAR(100) NOT NULL UNIQUE,
+    password_hash VARCHAR(128) NOT NULL,
+    role VARCHAR(50) DEFAULT 'user'
+    );
+
+
+-- Sample user: username = admin, password = password
+-- SHA-256("password") = 5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8
+INSERT INTO users (username, password_hash, role) VALUES ('admin', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'admin');
 
 -- Sample Data (Optional, but good for testing)
 INSERT INTO `districts` (`district_name`) VALUES

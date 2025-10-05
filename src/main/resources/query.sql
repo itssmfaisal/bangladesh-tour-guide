@@ -47,9 +47,9 @@ CREATE TABLE IF NOT EXISTS users (
     );
 
 
--- Sample user: username = admin, password = password
+-- Sample user: username = user, password = password
 -- SHA-256("password") = 5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8
-INSERT INTO users (username, password_hash, role) VALUES ('admin', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'admin');
+INSERT INTO users (username, password_hash, role) VALUES ('user', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'user');
 
 -- Sample Data (Optional, but good for testing)
 INSERT INTO `districts` (`district_name`) VALUES
